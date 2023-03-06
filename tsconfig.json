@@ -3,11 +3,12 @@
   "include": ["src", "types", "src/index.ts"],
   "compilerOptions": {
     "module": "ESNext", // for rollup to work
-    //"target": "ESNext", // use "ES2021" for node 16 from https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+    "target": "ES2021", // use "ES2021" for node 16 from https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+    "useDefineForClassFields": true,
     "lib": ["dom", "esnext"],
     "importHelpers": true,
     // output .d.ts declaration files for consumers
-    "declaration": true,
+    //"declaration": true,
     // output .js.map sourcemap files for consumers
     "sourceMap": true,
     // match output dir to input dir. e.g. dist/index instead of dist/src/index
@@ -31,6 +32,6 @@
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
-    "noEmit": false, // to make tsc outputsomthing
+    "noEmit": false // to make tsc output something
   }
 }

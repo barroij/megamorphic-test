@@ -1,6 +1,8 @@
+import { Box } from './Box'
 import { Shapes } from './Shapes'
 import { Shapes2 } from './Shapes2'
 import { Shapes3 } from './Shapes3'
+import { v8natives } from './v8natives'
 
 export function main() {
   console.log(`NODE_ENV=${process.env.NODE_ENV}`)
@@ -65,4 +67,8 @@ export function main() {
   else {
     throw new Error('must pass argument obj,obj2,soa')
   }
+
+  v8natives.helpers.printStatus(Shapes3.prototype.computeBigBox)
+  v8natives.helpers.printStatus(Box.expandByBox)
+  v8natives.helpers.printStatus(Box.expandByBoxBuf)
 }

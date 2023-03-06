@@ -25,9 +25,9 @@
     "tsc-es5-build":    "tsc -p ./tsconfig-tsc-es5.json",
     "tsc-es2021-build": "tsc -p ./tsconfig-tsc-es2021.json",
     "tsc-esnext-build": "tsc -p ./tsconfig-tsc-esnext.json",
-    "tsc-es5-run":    "yarn tsc-es5-build    && node tsc-out/es5/index.js",
-    "tsc-es2021-run": "yarn tsc-es2021-build && node tsc-out/es2021/index.js",
-    "tsc-esnext-run": "yarn tsc-esnext-build && node tsc-out/esnext/index.js"
+    "tsc-es5-run":    "yarn tsc-es5-build    && node --allow-natives-syntax tsc-out/es5/index.js",
+    "tsc-es2021-run": "yarn tsc-es2021-build && node --allow-natives-syntax tsc-out/es2021/index.js",
+    "tsc-esnext-run": "yarn tsc-esnext-build && node --allow-natives-syntax tsc-out/esnext/index.js"
   },
   "peerDependencies": {},
   "husky": {
@@ -63,7 +63,8 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "v8-natives": "1.2.5"
   },
   "browserslist": [
     "and_chr 90",

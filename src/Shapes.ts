@@ -1,93 +1,78 @@
 import { Box } from './Box'
+import { v8natives } from './v8natives'
 
 //--------------------------------------------------------------------------------------------------
-class A implements Box {
-  a = 0
-  minX: number
-  minY: number
-  maxX: number
-  maxY: number
-
-  constructor(box: Box) {
-    this.minX = box.minX
-    this.minY = box.minY
-    this.maxX = box.maxX
-    this.maxY = box.maxY
+type A = Box & { a: number }
+function newA(minX: number, minY: number, maxX: number, maxY: number): A {
+  return {
+    a: 0,
+    minX,
+    minY,
+    maxX,
+    maxY,
   }
 }
 
 //--------------------------------------------------------------------------------------------------
-class B implements Box {
-  b1 = 0
-  b2 = 0
-  minX: number
-  minY: number
-  maxX: number
-  maxY: number
-
-  constructor(box: Box) {
-    this.minX = box.minX
-    this.minY = box.minY
-    this.maxX = box.maxX
-    this.maxY = box.maxY
+type B = Box & { b1: number; b2: number }
+function newB(minX: number, minY: number, maxX: number, maxY: number): B {
+  return {
+    b1: 0,
+    b2: 0,
+    minX,
+    minY,
+    maxX,
+    maxY,
   }
 }
 
 //--------------------------------------------------------------------------------------------------
-class C implements Box {
-  c1 = 0
-  c2 = 0
-  c3 = 0
-  minX: number
-  minY: number
-  maxX: number
-  maxY: number
-
-  constructor(box: Box) {
-    this.minX = box.minX
-    this.minY = box.minY
-    this.maxX = box.maxX
-    this.maxY = box.maxY
+type C = Box & { c1: number; c2: number; c3: number }
+function newC(minX: number, minY: number, maxX: number, maxY: number): C {
+  return {
+    c1: 0,
+    c2: 0,
+    c3: 0,
+    minX,
+    minY,
+    maxX,
+    maxY,
   }
 }
 
 //--------------------------------------------------------------------------------------------------
-class D implements Box {
-  d1 = 0
-  d2 = 0
-  d3 = 0
-  d4 = 0
-  minX: number
-  minY: number
-  maxX: number
-  maxY: number
-
-  constructor(box: Box) {
-    this.minX = box.minX
-    this.minY = box.minY
-    this.maxX = box.maxX
-    this.maxY = box.maxY
+type D = Box & { d1: number; d2: number; d3: number; d4: number }
+function newD(minX: number, minY: number, maxX: number, maxY: number): D {
+  return {
+    d1: 0,
+    d2: 0,
+    d3: 0,
+    d4: 0,
+    minX,
+    minY,
+    maxX,
+    maxY,
   }
 }
 
 //--------------------------------------------------------------------------------------------------
-class E implements Box {
-  e1 = 0
-  e2 = 0
-  e3 = 0
-  e4 = 0
-  e5 = 0
-  minX: number
-  minY: number
-  maxX: number
-  maxY: number
-
-  constructor(box: Box) {
-    this.minX = box.minX
-    this.minY = box.minY
-    this.maxX = box.maxX
-    this.maxY = box.maxY
+type E = Box & { e1: number; e2: number; e3: number; e4: number; e5: number }
+function newE(minX: number, minY: number, maxX: number, maxY: number): E {
+  return {
+    e1: 0,
+    e2: 0,
+    e3: 0,
+    e4: 0,
+    e5: 0,
+    minX,
+    minY,
+    maxX,
+    maxY,
   }
+}
+
+if (v8natives.haveSameMap(newA(0, 0, 0, 0), newB(0, 0, 0, 0))) {
+  throw new Error('newA() and newB() should NOT have the same Map')
 }
 
 type AnyShape = A | B | C | D | E
@@ -107,14 +92,14 @@ export class Shapes {
 
         let shape: AnyShape
         switch (k % classCount) {
-          case 0: shape = new A(_box); break
-          case 1: shape = new B(_box); break
-          case 2: shape = new C(_box); break
-          case 3: shape = new D(_box); break
-          case 4: shape = new E(_box); break
+          case 0: shape = newA(i, j, i + 1, j + 1); break
+          case 1: shape = newB(i, j, i + 1, j + 1); break
+          case 2: shape = newC(i, j, i + 1, j + 1); break
+          case 3: shape = newD(i, j, i + 1, j + 1); break
+          case 4: shape = newE(i, j, i + 1, j + 1); break
           default: throw new Error()
-        } // prettier-ignor
-        
+        } // prettier-ignore
+
         k++
         shapes.push(shape)
       }
