@@ -74,12 +74,28 @@ function newE2(minX: number, minY: number, maxX: number, maxY: number): E2 {
 if (!v8natives.isNative()) {
   throw new Error('v8natives.isNative( is false')
 }
-v8natives.debugPrint(newA2(0, 0, 0, 0))
-v8natives.debugPrint(newB2(0, 0, 0, 0))
-v8natives.debugPrint(newC2(0, 0, 0, 0))
-v8natives.debugPrint(newD2(0, 0, 0, 0))
-v8natives.debugPrint(newE2(0, 0, 0, 0))
 
+export function v8info_obj2() {
+  console.log('------------------------')
+  console.log('A2')
+  v8natives.debugPrint(newA2(0, 0, 0, 0))
+
+  console.log('------------------------')
+  console.log('B2')
+  v8natives.debugPrint(newB2(0, 0, 0, 0))
+
+  console.log('------------------------')
+  console.log('C2')
+  v8natives.debugPrint(newC2(0, 0, 0, 0))
+
+  console.log('------------------------')
+  console.log('D2')
+  v8natives.debugPrint(newD2(0, 0, 0, 0))
+
+  console.log('------------------------')
+  console.log('E2')
+  v8natives.debugPrint(newE2(0, 0, 0, 0))
+}
 
 type AnyShape2 = A2 | B2 | C2 | D2 | E2
 

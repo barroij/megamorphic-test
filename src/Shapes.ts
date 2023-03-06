@@ -71,9 +71,28 @@ function newE(minX: number, minY: number, maxX: number, maxY: number): E {
   }
 }
 
-if (v8natives.haveSameMap(newA(0, 0, 0, 0), newB(0, 0, 0, 0))) {
-  throw new Error('newA() and newB() should NOT have the same Map')
+export function v8info_obj() {
+  console.log('------------------------')
+  console.log('A')
+  v8natives.debugPrint(newA(0, 0, 0, 0))
+  
+  console.log('------------------------')
+  console.log('B')
+  v8natives.debugPrint(newB(0, 0, 0, 0))
+  
+  console.log('------------------------')
+  console.log('C')
+  v8natives.debugPrint(newC(0, 0, 0, 0))
+  
+  console.log('------------------------')
+  console.log('D')
+  v8natives.debugPrint(newD(0, 0, 0, 0))
+  
+  console.log('------------------------')
+  console.log('E')
+  v8natives.debugPrint(newE(0, 0, 0, 0))
 }
+
 
 type AnyShape = A | B | C | D | E
 
