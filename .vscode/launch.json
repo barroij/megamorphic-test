@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "obj",
-      "args": ["src/index.ts", "obj"],
+      "args": ["src/index.ts", "obj", "5"],
       "type": "node",
       "request": "launch",
       "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
@@ -16,7 +16,7 @@
     },
     {
       "name": "obj2",
-      "args": ["src/index.ts", "obj2"],
+      "args": ["src/index.ts", "obj2", "5"],
       "type": "node",
       "request": "launch",
       "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
@@ -29,7 +29,7 @@
     },
     {
       "name": "soa",
-      "args": ["src/index.ts", "soa"],
+      "args": ["src/index.ts", "soa", "5"],
       "type": "node",
       "request": "launch",
       "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],

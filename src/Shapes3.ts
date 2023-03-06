@@ -44,7 +44,7 @@ export class Shapes3 {
   shapes: AnyShape3[] = []
   boxes: number[] = []
 
-  constructor(N: number) {
+  constructor(N: number, classCount: number) {
     const shapes: AnyShape3[] = []
 
     let k = 0
@@ -53,7 +53,7 @@ export class Shapes3 {
         Box.set(_box, i, j, i + 1, j + 1)
 
         let shape: AnyShape3
-        switch (k % 5) {
+        switch (k % classCount) {
           case 0: shape = new A3(); break
           case 1: shape = new B3(); break
           case 2: shape = new C3(); break

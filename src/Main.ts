@@ -4,14 +4,20 @@ import { Shapes3 } from './Shapes3'
 
 export function main() {
   console.log(`NODE_ENV=${process.env.NODE_ENV}`)
-  const boxCount = 1000
+  const N = 1000
   const runCount = 100
 
+  const mode = process.argv[2]
+  const classCount = Number.parseInt(process.argv[3])
+  if (classCount === Number.NaN) {
+    throw new Error('must pass classCount in [1..5]')
+  }
+
   //------------------------------------
-  if (process.argv.includes('obj')) {
+  if (mode === 'obj') {
     const t0 = performance.now()
 
-    const shapes = new Shapes(boxCount)
+    const shapes = new Shapes(N, classCount)
 
     const t1 = performance.now()
 
@@ -24,10 +30,10 @@ export function main() {
     console.log(`computeBigBox ${t2 - t1} milliseconds.`)
   }
   //------------------------------------
-  else if (process.argv.includes('obj2')) {
+  else if (mode === 'obj2') {
     const t0 = performance.now()
 
-    const shapes = new Shapes2(boxCount)
+    const shapes = new Shapes2(N, classCount)
 
     const t1 = performance.now()
 
@@ -40,10 +46,10 @@ export function main() {
     console.log(`computeBigBox ${t2 - t1} milliseconds.`)
   }
   //------------------------------------
-  else if (process.argv.includes('soa')) {
+  else if (mode === 'soa') {
     const t0 = performance.now()
 
-    const shapes = new Shapes3(boxCount)
+    const shapes = new Shapes3(N, classCount)
 
     const t1 = performance.now()
 
