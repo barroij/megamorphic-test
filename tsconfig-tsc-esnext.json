@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS", // for tsc + node to work
+    "outDir": "./tsc-out/esnext",
+  }
+}

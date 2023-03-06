@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS", // for tsc + node to work
+    "outDir": "./tsc-out/es5",
+  }
+}

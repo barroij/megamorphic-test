@@ -8,16 +8,26 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
+    "build-browser": "tsdx build --target browser",
+    "build-node": "tsdx build --target node",
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "babel": "tsdx build && node dist/megamorphic-test.cjs.production.min.js",
+    "babel-node": "tsdx build --target node && node dist/megamorphic-test.cjs.production.min.js",
+    "tsc-es5-build":    "tsc -p ./tsconfig-tsc-es5.json",
+    "tsc-es2021-build": "tsc -p ./tsconfig-tsc-es2021.json",
+    "tsc-esnext-build": "tsc -p ./tsconfig-tsc-esnext.json",
+    "tsc-es5-run":    "yarn tsc-es5-build    && node tsc-out/es5/index.js",
+    "tsc-es2021-run": "yarn tsc-es2021-build && node tsc-out/es2021/index.js",
+    "tsc-esnext-run": "yarn tsc-esnext-build && node tsc-out/esnext/index.js"
   },
   "peerDependencies": {},
   "husky": {
@@ -26,8 +36,8 @@
     }
   },
   "prettier": {
-    "printWidth": 80,
-    "semi": true,
+    "printWidth": 100,
+    "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
   },
@@ -51,5 +61,20 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.5.0",
     "typescript": "^4.9.5"
-  }
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "browserslist": [
+    "and_chr 90",
+    "and_ff 87",
+    "and_uc 12.12",
+    "chrome 90",
+    "edge 90",
+    "firefox 88",
+    "ios_saf 14.5",
+    "opera 75",
+    "safari 14.1",
+    "samsung 14.0"
+  ]
 }

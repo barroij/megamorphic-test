@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "target": "ES2021", // use "ES2021" for node 16 from https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+    "module": "CommonJS", // for tsc + node to work
+    "outDir": "./tsc-out/es2021",
+  }
+}

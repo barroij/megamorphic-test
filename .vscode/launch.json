@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "obj",
+      "args": ["src/index.ts", "obj"],
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+      "env": {
+        "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig-tsc-esnext.json"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnFirstSessionStart",
+      "skipFiles": ["<node_internals>/**/*.js"],
+    },
+    {
+      "name": "obj2",
+      "args": ["src/index.ts", "obj2"],
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+      "env": {
+        "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig-tsc-esnext.json"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnFirstSessionStart",
+      "skipFiles": ["<node_internals>/**/*.js"],
+    },
+    {
+      "name": "soa",
+      "args": ["src/index.ts", "soa"],
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+      "env": {
+        "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig-tsc-esnext.json"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnFirstSessionStart",
+      "skipFiles": ["<node_internals>/**/*.js"],
+    },
+  ]
+}

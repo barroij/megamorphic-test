@@ -1,0 +1,5 @@
+// You can add your own .babelrc to the root of your project and TSDX will merge it with its own
+// Babel transforms (which are mostly for optimization), putting any new presets and plugins at the end of its list.
+// https://github.com/jaredpalmer/tsdx/blob/master/src/babelPluginTsdx.ts
+{
+}
