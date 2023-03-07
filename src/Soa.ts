@@ -50,42 +50,42 @@ function newE3(): E3 {
   }
 }
 
-type AnyShape3 = A3 | B3 | C3 | D3 | E3
+type AnyObj3 = A3 | B3 | C3 | D3 | E3
 
 //--------------------------------------------------------------------------------------------------
-export class Shapes3 {
-  shapes: AnyShape3[] = []
+export class Soa {
+  objs: AnyObj3[] = []
   boxes: number[] = []
 
   constructor(N: number, classCount: number) {
-    const shapes: AnyShape3[] = []
+    const objs: AnyObj3[] = []
 
     let k = 0
     for (let i = 0; i < N; ++i) {
       for (let j = 0; j < N; ++j) {
-        let shape: AnyShape3
+        let obj: AnyObj3
         switch (k % classCount) {
-          case 0: shape = newA3(); break
-          case 1: shape = newB3(); break
-          case 2: shape = newC3(); break
-          case 3: shape = newD3(); break
-          case 4: shape = newE3(); break
+          case 0: obj = newA3(); break
+          case 1: obj = newB3(); break
+          case 2: obj = newC3(); break
+          case 3: obj = newD3(); break
+          case 4: obj = newE3(); break
           default: throw new Error()
         } // prettier-ignore
 
         k++
-        shapes.push(shape)
+        objs.push(obj)
         this.boxes.push(i, j, i + 1, j + 1)
       }
     }
 
-    this.shapes = shapes
+    this.objs = objs
   }
 
   computeBigBox(): Box {
-    const { shapes, boxes } = this
+    const { objs, boxes } = this
     const box = Box.new()
-    const len = shapes.length
+    const len = objs.length
     for (let i = 0; i < len; ++i) {
       Box.expandByBoxBuf(box, boxes, i * 4)
     }

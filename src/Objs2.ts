@@ -97,45 +97,45 @@ export function v8info_obj2() {
   v8natives.debugPrint(newE2(0, 0, 0, 0))
 }
 
-type AnyShape2 = A2 | B2 | C2 | D2 | E2
+type AnyObj2 = A2 | B2 | C2 | D2 | E2
 
 const _box = Box.new()
 //--------------------------------------------------------------------------------------------------
-export class Shapes2 {
-  shapes: AnyShape2[] = []
+export class Objs2 {
+  objs: AnyObj2[] = []
 
   constructor(N: number, classCount: number) {
-    const shapes: AnyShape2[] = []
+    const objs: AnyObj2[] = []
 
     let k = 0
     for (let i = 0; i < N; ++i) {
       for (let j = 0; j < N; ++j) {
         Box.set(_box, i, j, i + 1, j + 1)
 
-        let shape: AnyShape2
+        let obj: AnyObj2
         switch (k % classCount) {
-          case 0: shape = newA2(i, j, i + 1, j + 1); break
-          case 1: shape = newB2(i, j, i + 1, j + 1); break
-          case 2: shape = newC2(i, j, i + 1, j + 1); break
-          case 3: shape = newD2(i, j, i + 1, j + 1); break
-          case 4: shape = newE2(i, j, i + 1, j + 1); break
+          case 0: obj = newA2(i, j, i + 1, j + 1); break
+          case 1: obj = newB2(i, j, i + 1, j + 1); break
+          case 2: obj = newC2(i, j, i + 1, j + 1); break
+          case 3: obj = newD2(i, j, i + 1, j + 1); break
+          case 4: obj = newE2(i, j, i + 1, j + 1); break
           default: throw new Error()
         } // prettier-ignore
 
         k++
-        shapes.push(shape)
+        objs.push(obj)
       }
     }
 
-    this.shapes = shapes
+    this.objs = objs
   }
 
   computeBigBox(): Box {
-    const { shapes } = this
+    const { objs } = this
     const box = Box.new()
-    const len = shapes.length
+    const len = objs.length
     for (let i = 0; i < len; ++i) {
-      Box.expandByBox(box, shapes[i])
+      Box.expandByBox(box, objs[i])
     }
     return box
   }
