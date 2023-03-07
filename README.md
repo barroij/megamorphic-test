@@ -1,103 +1,86 @@
-# TSDX User Guide
+# README
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+# run benchmark
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
+- `cross-env MEGAMORPHIC_TEST_MODE=obj1 yarn bench`
+- `cross-env MEGAMORPHIC_TEST_MODE=soa yarn bench`
 
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
+# run benchmark and output v8 for analysis
 
-## Commands
+- `cross-env MEGAMORPHIC_TEST_MODE=obj1 yarn v8log`
+- `cross-env MEGAMORPHIC_TEST_MODE=soa yarn v8log`
 
-TSDX scaffolds your new library inside `/src`.
 
-To run TSDX, use:<v>
+# alternatives
 
-```bash
-npm start # or yarn start
+**to invoke v8-deopt-viewer on js file**
+
+`yarn build && v8-deopt-viewer tsc-out/esnext/index.js -o v8logs/auto && serve ./v8logs/auto`
+
+**--trace-opt --log-deopt in addition to --log-ic**
+
+`yarn build && node --allow-natives-syntax --trace-opt --log-deopt --log-ic --no-logfile-per-isolate --log-maps --logfile=v8logs/manual/v8.log tsc-out/esnext/index.js 2>NUL`
+
+
+
+# version of v8 is used by node
+
+`node -v`
+`node -e "console.log(process.versions['v8'])"`
+
+ex:
+```
+node version: v19.7.0
+v8 version:   10.8.168.25-node.11
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+# version of v8 is used by chrome
 
-To do a one-off build, use `npm run build` or `yarn build`.
+visit the chrome://version/ page
 
-To run tests, use `npm test` or `yarn test`.
-
-## Configuration
-
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle Analysis
-
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
+ex:
+```
+Google Chrome:   110.0.5481.178
+JavaScript:	     V8 11.0.226.16
 ```
 
-### Rollup
+# v8 flags
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+`node --v8-options > v8options.txt`
 
-### TypeScript
+alternatively:
 
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
+https://github.com/v8/v8/blob/master/src/flags/flag-definitions.h
 
-## Continuous Integration
-
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
+ex:
+```c++
+DEFINE_BOOL(trace_opt, false, "trace optimized compilation")
+DEFINE_BOOL(trace_opt_verbose, false,
+            "extra verbose optimized compilation tracing")
+DEFINE_IMPLICATION(trace_opt_verbose, trace_opt)
+DEFINE_BOOL(trace_opt_stats, false, "trace optimized compilation statistics")
+DEFINE_BOOL(trace_deopt, false, "trace deoptimization")
+DEFINE_BOOL(log_deopt, false, "log deoptimization")
+DEFINE_BOOL(trace_deopt_verbose, false, "extra verbose deoptimization tracing")
+DEFINE_IMPLICATION(trace_deopt_verbose, trace_deopt)
+DEFINE_BOOL(trace_file_names, false,
+            "include file names in trace-opt/trace-deopt output")
+DEFINE_BOOL(always_opt, false, "always try to optimize functions")
+DEFINE_IMPLICATION(always_opt, opt)
+DEFINE_BOOL(always_osr, false, "always try to OSR functions")
+DEFINE_BOOL(prepare_always_opt, false, "prepare for turning on always opt")
 ```
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+# v8-deopt-viewer
 
-## Module Formats
+https://github.com/andrewiggins/v8-deopt-viewer
 
-CJS, ESModules, and UMD module formats are supported.
+to manually pas the same v8 flags as v8-deopt-viewer, see
+https://github.com/andrewiggins/v8-deopt-viewer/blob/master/packages/v8-deopt-generate-log/src/index.js
 
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
 
-## Named Exports
+`--log-ic --logfile=xxx --no-logfile-per-isolate`
 
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+and optionally: `--log-maps`
 
-## Including Styles
 
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).

@@ -24,14 +24,25 @@ type Func = (...args: any[]) => void
 
 type Obj = Record<string, any>
 
-enum OptimizationStatus {
-  Optimized = 1,
-  UnOptimized = 2,
-  AlwaysOptimized = 3,
-  NeverOptimized = 4,
-  Unknown = 5,
-  MaybeOptimized = 6
-}
+// https://github.com/NathanaelA/v8-Natives/blob/master/lib/v8-node.js#L78
+/* https://github.com/v8/v8/blob/master/src/runtime/runtime.h#L868
+enum class OptimizationStatus {
+  kIsFunction = 1 << 0,
+  kNeverOptimize = 1 << 1,
+  kAlwaysOptimize = 1 << 2,
+  kMaybeDeopted = 1 << 3,
+  kOptimized = 1 << 4,
+  kTurboFanned = 1 << 5,
+  kInterpreted = 1 << 6,
+  kMarkedForOptimization = 1 << 7,
+  kMarkedForConcurrentOptimization = 1 << 8,
+  kOptimizingConcurrently = 1 << 9,
+  kIsExecuting = 1 << 10,
+  kTopmostFrameIsTurboFanned = 1 << 11,
+  kLiteMode = 1 << 12,
+  kMarkedForDeoptimization = 1 << 13,
+};
+*/
 
 interface V8natives {
   //------------------------------------------------------------------------------------------------
@@ -115,7 +126,7 @@ interface V8natives {
 
   /// Get the functions optimization status
   /// returns %GetOptimizationStatus(func)
-  getOptimizationStatus(func: Func): OptimizationStatus
+  getOptimizationStatus(func: Func): number
 
   /// no idea what this does
   /// returns %ClearFunctionFeedback(fun);
