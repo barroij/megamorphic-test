@@ -96,7 +96,6 @@ export function v8info_obj1() {
 
 type AnyObj1 = A1 | B1 | C1 | D1 | E1
 
-const _box = Box.new()
 //--------------------------------------------------------------------------------------------------
 export class Objs1 {
   objs: AnyObj1[] = []
@@ -107,8 +106,6 @@ export class Objs1 {
     let k = 0
     for (let i = 0; i < N; ++i) {
       for (let j = 0; j < N; ++j) {
-        Box.set(_box, i, j, i + 1, j + 1)
-
         let obj: AnyObj1
         switch (k % classCount) {
           case 0: obj = newA(i, j, i + 1, j + 1); break

@@ -19,14 +19,6 @@ export const Box = {
   },
 
   //------------------------------------------------------------------------------------------------
-  set(box: Box, minX: number, minY: number, maxX: number, maxY: number): void {
-    box.minX = minX
-    box.minY = minY
-    box.maxX = maxX
-    box.maxY = maxY
-  },
-
-  //------------------------------------------------------------------------------------------------
   expandByBox(box: Box, other: ConstBox): void {
     const { minX, minY, maxX, maxY } = other
     if (minX < box.minX) { box.minX = minX }
