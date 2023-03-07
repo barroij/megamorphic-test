@@ -30,13 +30,17 @@
 
     "build": "tsc -p ./tsconfig-tsc-esnext.json",
     "run_": "cross-env NODE_ENV=production node --allow-natives-syntax tsc-out/esnext/index.js",
-    "run-all": "yarn build && yarn run_ obj1 5 && yarn run_ obj2 5 && yarn run_ cls 5 && yarn run_ soa 5",
     
+    "bench-all": "yarn build && yarn run_ obj1 5 && yarn run_ obj2 5 && yarn run_ cls 5 && yarn run_ soa 5",   
     "bench": "yarn build && yarn run_",
 
-    "make-v8log":  "yarn build && node --allow-natives-syntax --log-ic --no-logfile-per-isolate --log-maps --logfile=v8logs/manual/v8.log tsc-out/esnext/index.js 2>NUL",
-    "open-v8log": "v8-deopt-viewer -i v8logs/manual/v8.log -o v8logs/manual 2>NUL && serve ./v8logs/manual",
-    "v8log": "yarn make-v8log && yarn open-v8log"
+    "make-log-opt": "yarn build && cross-env NODE_ENV=production node --allow-natives-syntax --trace-opt --log-deopt --no-logfile-per-isolate --logfile=v8log/v8.log tsc-out/esnext/index.js 2>NUL",
+    "make-log-ic":  "yarn build && cross-env NODE_ENV=production node --allow-natives-syntax --log-ic --log-maps     --no-logfile-per-isolate --logfile=v8log/v8.log tsc-out/esnext/index.js 2>NUL",
+
+    "open-log" : "v8-deopt-viewer -i v8log/v8.log -o v8log 2>NUL && serve ./v8log",
+
+    "log-opt": "yarn make-log-opt",
+    "log-ic":  "yarn make-log-ic && yarn open-log"
   },
   "peerDependencies": {},
   "husky": {

@@ -3,7 +3,5 @@
 node_modules
 /dist
 /tsc-out
-/v8logs/auto/*
-!/v8logs/auto/do-not-remove
-/v8logs/manual/*
-!/v8logs/manual/do-not-remove
+/v8log/*
+!/v8log/do-not-remove

@@ -1,9 +1,7 @@
-import { Box } from './Box'
-import { BoxCls, Cls } from './Cls'
+import { Cls } from './Cls'
 import { Objs1 } from './Objs1'
 import { Objs2 } from './Objs2'
 import { Soa } from './Soa'
-import { v8natives } from './v8natives'
 
 function logTimes(t0: number, t1: number, t2: number, t3: number) {
   console.log(`init          ${(t1 - t0).toFixed(0)} milliseconds.`)
@@ -17,9 +15,6 @@ export function main() {
   let mode: string = 'obj1'
   let classCount = 5
 
-  // usage:
-  // cross-env MEGAMORPHIC_TEST_MODE=soa yarn make-v8log
-  // yarn open-v8log
   if (process.env.MEGAMORPHIC_TEST_MODE) {
     mode = process.env.MEGAMORPHIC_TEST_MODE
   }
@@ -49,7 +44,7 @@ export function main() {
     const objs = new Objs1(N, classCount)
     const t1 = performance.now()
 
-    // warmup
+    // warm up
     for (let i = 0; i < runCount; ++i) {
       objs.computeBigBox()
     }
@@ -63,8 +58,9 @@ export function main() {
 
     logTimes(t0, t1, t2, t3)
 
-    v8natives.helpers.printStatus(Objs1.prototype.computeBigBox)
-    v8natives.helpers.printStatus(Box.expandByBox)
+    // COMMENTED BECAUSE printStatus() does not give reliable results
+    //v8natives.helpers.printStatus(Objs1.prototype.computeBigBox)
+    //v8natives.helpers.printStatus(Box.expandByBox)
   }
   //------------------------------------
   else if (mode === 'obj2') {
@@ -72,7 +68,7 @@ export function main() {
     const objs = new Objs2(N, classCount)
     const t1 = performance.now()
 
-    // warmup
+    // warm up
     for (let i = 0; i < runCount; ++i) {
       objs.computeBigBox()
     }
@@ -86,8 +82,9 @@ export function main() {
 
     logTimes(t0, t1, t2, t3)
 
-    v8natives.helpers.printStatus(Objs2.prototype.computeBigBox)
-    v8natives.helpers.printStatus(Box.expandByBox)
+    // COMMENTED BECAUSE printStatus() does not give reliable results
+    //v8natives.helpers.printStatus(Objs2.prototype.computeBigBox)
+    //v8natives.helpers.printStatus(Box.expandByBox)
   }
   //------------------------------------
   else if (mode === 'soa') {
@@ -95,7 +92,7 @@ export function main() {
     const objs = new Soa(N, classCount)
     const t1 = performance.now()
 
-    // warmup
+    // warm up
     for (let i = 0; i < runCount; ++i) {
       objs.computeBigBox()
     }
@@ -109,8 +106,9 @@ export function main() {
 
     logTimes(t0, t1, t2, t3)
 
-    v8natives.helpers.printStatus(Soa.prototype.computeBigBox)
-    v8natives.helpers.printStatus(Box.expandByBoxBuf)
+    // COMMENTED BECAUSE printStatus() does not give reliable results
+    //v8natives.helpers.printStatus(Soa.prototype.computeBigBox)
+    //v8natives.helpers.printStatus(Box.expandByBoxBuf)
   }
   //------------------------------------
   else if (mode === 'cls') {
@@ -118,7 +116,7 @@ export function main() {
     const objs = new Cls(N, classCount)
     const t1 = performance.now()
 
-    // warmup
+    // warm up
     for (let i = 0; i < runCount; ++i) {
       objs.computeBigBox()
     }
@@ -132,8 +130,9 @@ export function main() {
 
     logTimes(t0, t1, t2, t3)
 
-    v8natives.helpers.printStatus(Cls.prototype.computeBigBox)
-    v8natives.helpers.printStatus(BoxCls.prototype.expandByBox)
+    // COMMENTED BECAUSE printStatus() does not give reliable results
+    //v8natives.helpers.printStatus(Cls.prototype.computeBigBox)
+    //v8natives.helpers.printStatus(BoxCls.prototype.expandByBox)
   }
   //
   else {
