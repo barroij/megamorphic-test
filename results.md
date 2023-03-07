@@ -68,4 +68,6 @@ computeBigBox 252 milliseconds.
 
 the big differences of `v19.7.0` vs `v16.15.1`
 - the init time of `cls` is much faster
+  - probably thanks to https://v8.dev/blog/faster-class-features
 - expandByBox is `Function` instead of `Function, Optimized, TurboFanned`
+

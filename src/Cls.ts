@@ -94,11 +94,11 @@ class E4 extends BoxCls {
   }
 }
 
-if (!v8natives.isNative()) {
-  throw new Error('v8natives.isNative( is false')
-}
-
 export function v8info_cls() {
+  if (!v8natives.isNative()) {
+    console.log('v8natives.isNative() is false. Cannot log v8info')
+  }
+
   console.log('------------------------')
   console.log('A4')
   v8natives.debugPrint(new A4(0, 0, 0, 0))

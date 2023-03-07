@@ -113,7 +113,7 @@ export class Objs1 {
           case 2: obj = newC(i, j, i + 1, j + 1); break
           case 3: obj = newD(i, j, i + 1, j + 1); break
           case 4: obj = newE(i, j, i + 1, j + 1); break
-          default: throw new Error()
+          default: throw new Error(`k % classCount = ${k % classCount}`)
         } // prettier-ignore
 
         k++

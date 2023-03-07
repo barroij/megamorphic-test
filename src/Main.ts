@@ -15,10 +15,27 @@ export function main() {
   const N = 1000
   const runCount = 100
 
-  const mode = process.argv[2]
-  const classCount = Number.parseInt(process.argv[3])
-  if (classCount === Number.NaN) {
-    throw new Error('must pass classCount in [1..5]')
+  const args = process.argv.slice(2)
+
+  let mode: string = 'obj1'
+  let classCount = 5
+  if (args.length === 0) {
+    // we use this silly pass arguments via env because
+    // deoptigate -- node --allow-natives-syntax tsc-out/esnext/index.js obj1 5
+    // ends up with argv=xxx\node.exe,xxx\index.js,obj1,obj1,5,5
+    if (process.env.mode) {
+      mode = process.env.mode
+    }
+    if (process.env.classCount) {
+      classCount = Number.parseInt(process.env.classCount)
+    }
+  } else {
+    mode = args[0]
+    classCount = Number.parseInt(args[1])
+  }
+
+  if (Number.isNaN(classCount)) {
+    throw new Error(`must pass classCount in [1..5], classCount=${classCount}`)
   }
 
   //------------------------------------

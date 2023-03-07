@@ -22,13 +22,19 @@
     "analyze": "size-limit --why",
     "babel": "tsdx build && node dist/megamorphic-test.cjs.production.min.js",
     "babel-node": "tsdx build --target node && node dist/megamorphic-test.cjs.production.min.js",
+    
     "tsc-es5-build":    "tsc -p ./tsconfig-tsc-es5.json",
     "tsc-es2021-build": "tsc -p ./tsconfig-tsc-es2021.json",
-    "tsc-esnext-build": "tsc -p ./tsconfig-tsc-esnext.json",
     "tsc-es5-run":    "yarn tsc-es5-build    && cross-env NODE_ENV=production node --allow-natives-syntax tsc-out/es5/index.js",
     "tsc-es2021-run": "yarn tsc-es2021-build && cross-env NODE_ENV=production node --allow-natives-syntax tsc-out/es2021/index.js",
+
+    "tsc-esnext-build": "tsc -p ./tsconfig-tsc-esnext.json",
     "run_": "cross-env NODE_ENV=production node --allow-natives-syntax tsc-out/esnext/index.js",
-    "run-all": "yarn tsc-esnext-build && yarn run_ obj1 5 && yarn run_ obj2 5 && yarn run_ cls 5 && yarn run_ soa 5"
+    "run-all": "yarn tsc-esnext-build && yarn run_ obj1 5 && yarn run_ obj2 5 && yarn run_ cls 5 && yarn run_ soa 5",
+    
+    "v8log": "yarn tsc-esnext-build && v8-deopt-viewer tsc-out/esnext/index.js -o v8logs/auto && serve ./v8logs/auto",
+    "make-v8log": "yarn tsc-esnext-build && node --allow-natives-syntax --log-ic --no-logfile-per-isolate --logfile=v8logs/manual/v8.log tsc-out/esnext/index.js > NUL",
+    "open-v8log": "v8-deopt-viewer -i v8logs/manual/v8.log -o v8logs/manual && serve ./v8logs/manual"
   },
   "peerDependencies": {},
   "husky": {

@@ -2,8 +2,8 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "obj",
-      "args": ["src/index.ts", "obj", "5"],
+      "name": "obj1",
+      "args": ["src/index.ts", "obj1", "5"],
       "type": "node",
       "request": "launch",
       "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],

@@ -71,11 +71,13 @@ function newE2(minX: number, minY: number, maxX: number, maxY: number): E2 {
   }
 }
 
-if (!v8natives.isNative()) {
-  throw new Error('v8natives.isNative( is false')
-}
+
 
 export function v8info_obj2() {
+  if (!v8natives.isNative()) {
+    console.log('v8natives.isNative() is false. Cannot log v8info')
+  }
+
   console.log('------------------------')
   console.log('A2')
   v8natives.debugPrint(newA2(0, 0, 0, 0))
