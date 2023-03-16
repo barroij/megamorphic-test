@@ -1,0 +1,76 @@
+
+oneObj - bufObj - expand : 596 ms. - intersect : 597 ms.
+oneObj - bufArr - expand : 533 ms. - intersect : 310 ms.
+oneObj - bufF64 - expand : 378 ms. - intersect : 302 ms.
+
+oneArr - bufObj - expand : 682 ms. - intersect : 664 ms.
+oneArr - bufArr - expand : 510 ms. - intersect : 368 ms.
+oneArr - bufF64 - expand : 423 ms. - intersect : 347 ms.
+
+oneF64 - bufObj - expand : 694 ms. - intersect : 696 ms.
+oneF64 - bufArr - expand : 480 ms. - intersect : 334 ms.
+oneF64 - bufF64 - expand : 397 ms. - intersect : 317 ms.
+
+
+
+bufObj - bufObj - expand :1189 ms. - intersect :1138 ms.
+bufObj - bufArr - expand : 953 ms. - intersect : 798 ms.
+bufObj - bufF64 - expand : 694 ms. - intersect : 716 ms.
+
+bufArr - bufObj - expand : 899 ms. - intersect : 767 ms.
+bufArr - bufArr - expand : 693 ms. - intersect : 601 ms.
+bufArr - bufF64 - expand : 573 ms. - intersect : 424 ms.
+
+bufF64 - bufObj - expand : 729 ms. - intersect : 712 ms.
+bufF64 - bufArr - expand : 611 ms. - intersect : 425 ms.
+bufF64 - bufF64 - expand : 443 ms. - intersect : 293 ms.
+
+
+
+oneObj bufArr transform alloc
+DebugPrint: 000003DC2F13FFD1: [JSArray] in OldSpace
+ - map: 0x02969a28bed9 <Map[32](PACKED_ELEMENTS)> [FastProperties]
+ - prototype: 0x03dc2f105e39 <JSArray[0]>
+ - elements: 0x024b0ae81129 <FixedArray[2000000]> [PACKED_ELEMENTS]
+ - length: 2000000
+ - properties: 0x00a8ef041321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    000000A8EF0478D1: [String] in ReadOnlySpace: #length: 0x034af656be59 <AccessorInfo name= 0x00a8ef0478d1 <String[6]: #length>, data= 0x00a8ef0415b1 <undefined>> (const accessor descriptor), location: descriptor
+ }
+ - elements: 0x024b0ae81129 <FixedArray[2000000]> {
+
+DebugPrint: 000000C96D8035A1: [JSArray] in OldSpace
+ - map: 0x01d3da34bf69 <Map[32](PACKED_DOUBLE_ELEMENTS)> [FastProperties]
+ - prototype: 0x0232ed605e39 <JSArray[0]>
+ - elements: 0x037107cc1129 <FixedDoubleArray[2099482]> [PACKED_DOUBLE_ELEMENTS]
+ - length: 2000000
+ - properties: 0x02b356801321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    000002B3568078D1: [String] in ReadOnlySpace: #length: 0x007d2256be59 <AccessorInfo name= 0x02b3568078d1 <String[6]: #length>, data= 0x02b3568015b1 <undefined>> (const accessor descriptor), location: descriptor
+ }
+ - elements: 0x037107cc1129 <FixedDoubleArray[2099482]> {
+
+
+
+
+
+                                  default   forceF64    Diff
+xf oneArr - bufF64 - transform :  1757 ms.  1705 ms.     -52 ms.
+xf oneArr - bufF64 - transform :  1730 ms.  1645 ms.     -85 ms.
+xf oneArr - bufF64 - transform :  1751 ms.  1668 ms.     -83 ms.
+xf oneArr - bufF64 - transform :  1728 ms.  1708 ms.     -20 ms.
+xf oneArr - bufF64 - transform :  1735 ms.  1657 ms.     -78 ms.
+xf oneArr - bufF64 - transform :  1739 ms.  1660 ms.     -79 ms.
+xf oneArr - bufF64 - transform :  1716 ms.  1665 ms.     -51 ms.
+xf oneArr - bufF64 - transform :  1721 ms.  1646 ms.     -75 ms.
+xf oneArr - bufF64 - transform :  1724 ms.  1638 ms.     -86 ms.
+xf oneArr - bufF64 - transform :  1711 ms.  1736 ms.     +25 ms.
+xf oneArr - bufF64 - transform :  1770 ms.  1675 ms.     -95 ms.
+xf oneArr - bufF64 - transform :  1761 ms.  1674 ms.     -87 ms.
+xf oneArr - bufF64 - transform :  1755 ms.  1674 ms.     -81 ms.
+xf oneArr - bufF64 - transform :  1718 ms.  1684 ms.     -34 ms.
+xf oneArr - bufF64 - transform :  1741 ms.  1652 ms.     -89 ms.
+
+                       moyenne :  1737      1672         -65
+
+

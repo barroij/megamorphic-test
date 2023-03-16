@@ -1,0 +1,17 @@
+                         oneObj       oneArr     oneF64
+xf bufF64 - transform :  1740 ms.     1780 ms.   1745 ms.
+xf bufF64 - transform :  1882 ms.     1743 ms.   1697 ms.
+xf bufF64 - transform :  1709 ms.     1713 ms.   1722 ms.
+xf bufF64 - transform :  1737 ms.     1732 ms.   1729 ms.
+xf bufF64 - transform :  1788 ms.     1772 ms.   1793 ms.
+xf bufF64 - transform :  1839 ms.     1811 ms.   1881 ms.
+xf bufF64 - transform :  1805 ms.     1848 ms.   1893 ms.
+xf bufF64 - transform :  1828 ms.     1911 ms.   1812 ms.
+xf bufF64 - transform :  1905 ms.     1819 ms.   1827 ms.
+xf bufF64 - transform :  1880 ms.     1808 ms.   1881 ms.
+xf bufF64 - transform :  1851 ms.     1872 ms.   1852 ms.
+xf bufF64 - transform :  1797 ms.     1873 ms.   1807 ms.
+xf bufF64 - transform :  1868 ms.     1817 ms.   1826 ms.
+xf bufF64 - transform :  1865 ms.     1805 ms.   1884 ms.
+xf bufF64 - transform :  1805 ms.     1850 ms.   1863 ms.
+

@@ -29,12 +29,12 @@ const combinations = new Set()
 module.exports = {
   // This function will run for each entry/format/env combination
   rollup(config, options) {
-    const {target, format, env} = options
+    const { target, format, env } = options
     const combination = `${target} ${format} ${env}`
     if (!combinations.has(combination)) {
       console.log(combination)
       combinations.add(combination)
     }
-    return config; // always return a config.
+    return config // always return a config.
   },
-};
+}

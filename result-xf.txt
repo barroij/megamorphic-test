@@ -1,0 +1,22 @@
+// push
+xf oneObj - arrVec - transform :  542 milliseconds.
+xf oneObj - arrArr - transform :  834 milliseconds.
+xf oneObj - bufArr - transform :  131 milliseconds.
+xf oneObj - bufF64 - transform :  179 milliseconds.
+
+xf oneArr - arrVec - transform :  520 milliseconds.
+xf oneArr - arrArr - transform :  889 milliseconds.
+xf oneArr - bufArr - transform :  137 milliseconds.
+xf oneArr - bufF64 - transform :  186 milliseconds.
+
+// arrayAlloc
+xf oneObj - arrVec - transform :  519 milliseconds.
+xf oneObj - arrArr - transform :  844 milliseconds.
+xf oneObj - bufArr - transform :  12825 milliseconds.
+xf oneObj - bufF64 - transform :  183 milliseconds.
+
+xf oneArr - arrVec - transform :  490 milliseconds.
+xf oneArr - arrArr - transform :  811 milliseconds.
+xf oneArr - bufArr - transform :  12843 milliseconds.
+xf oneArr - bufF64 - transform :  183 milliseconds.
+

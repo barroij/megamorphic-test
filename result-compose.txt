@@ -1,0 +1,11 @@
+
+xf compose objArr default : 3658 ms.
+xf compose objArr force   : 3833 ms.
+
+xf compose arrArr default : 14639 ms.
+xf compose arrArr force   :  4794 ms.
+
+xf compose f64Arr         : 6813 ms.
+
+xf compose bufArr         :  1300 ms.
+xf compose bufF64         :  1534 ms.

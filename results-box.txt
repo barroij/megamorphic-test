@@ -1,0 +1,35 @@
+Box oneObj - objArr - expand :  682 ms - intersect :  660 ms
+Box oneObj - arrArr - expand :  552 ms - intersect :  460 ms
+Box oneObj - bufArr - expand :  316 ms - intersect :  256 ms
+Box oneObj - bufF64 - expand :  368 ms - intersect :  296 ms
+
+Box oneArr - objArr - expand :  676 ms - intersect :  659 ms
+Box oneArr - arrArr - expand :  528 ms - intersect :  498 ms
+Box oneArr - bufArr - expand :  339 ms - intersect :  266 ms
+Box oneArr - bufF64 - expand :  401 ms - intersect :  331 ms
+
+Box oneF64 - objArr - expand :  718 ms - intersect :  655 ms
+Box oneF64 - arrArr - expand :  533 ms - intersect :  486 ms
+Box oneF64 - bufArr - expand :  383 ms - intersect :  284 ms
+Box oneF64 - bufF64 - expand :  393 ms - intersect :  301 ms
+
+Box objArr - objArr - expand : 1048 ms - intersect : 1035 ms
+Box objArr - arrArr - expand :  934 ms - intersect :  859 ms
+Box objArr - bufArr - expand :  767 ms - intersect :  679 ms
+Box objArr - bufF64 - expand :  857 ms - intersect :  675 ms
+
+Box arrArr - objArr - expand :  949 ms - intersect :  907 ms
+Box arrArr - arrArr - expand : 1041 ms - intersect :  780 ms
+Box arrArr - bufArr - expand :  718 ms - intersect :  646 ms
+Box arrArr - bufF64 - expand :  634 ms - intersect :  541 ms
+
+Box bufArr - objArr - expand :  785 ms - intersect :  733 ms
+Box bufArr - arrArr - expand :  604 ms - intersect :  573 ms
+Box bufArr - bufArr - expand :  370 ms - intersect :  290 ms
+Box bufArr - bufF64 - expand :  423 ms - intersect :  290 ms
+
+Box bufF64 - objArr - expand :  780 ms - intersect :  725 ms
+Box bufF64 - arrArr - expand :  620 ms - intersect :  538 ms
+Box bufF64 - bufArr - expand :  453 ms - intersect :  309 ms
+Box bufF64 - bufF64 - expand :  443 ms - intersect :  296 ms
+
