@@ -5,7 +5,7 @@ import { XfCls } from './Xf/XfCls'
 import { XfCls2 } from './Xf/XfCls2'
 import { XfObj } from './Xf/XfObj'
 
- enum TestEnum {
+/* enum TestEnum {
   TOTO,
   TATA
  }
@@ -13,7 +13,7 @@ import { XfObj } from './Xf/XfObj'
  enum TestEnum2 {
   TOTO = "TOTO",
   TATA = "TATA"
- }
+ }*/
 export function main() {
   const args = process.argv.slice(2)
   if (args[0] === 'box') {
@@ -124,8 +124,16 @@ export function main() {
     console.log(v8natives.debugPrint(xfObj))
     console.log(v8natives.debugPrint(xfObj2))
 */
-    v8natives.debugPrint(TestEnum)
-    v8natives.debugPrint(TestEnum2)
+    // v8natives.debugPrint(TestEnum)
+    // v8natives.debugPrint(TestEnum2)
+
+    console.log(` ------------------------------------------------- `)
+
+    const arr1 = [-0]
+    arr1.length = 2096
+    v8natives.debugPrint(arr1)
+    const arr2 = arr1.slice()
+    v8natives.debugPrint(arr2)
   } else {
     throw new Error('Unknow command' + args[0])
   }

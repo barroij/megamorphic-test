@@ -14,64 +14,50 @@
     "prettier": "prettier \"jest-custom/*.js\" \"*.js\" \"src/**/*.{ts,tsx}\" --write --loglevel=warn",
     "size": "size-limit",
     "analyze": "size-limit --why",
-
-    "tsc-es5-build":    "tsc -p ./tsconfig-tsc-es5.json",
+    "tsc-es5-build": "tsc -p ./tsconfig-tsc-es5.json",
     "tsc-es2021-build": "tsc -p ./tsconfig-tsc-es2021.json",
     "tsc-esnext-build": "tsc -p ./tsconfig-tsc-esnext.json",
-    "tsc-es5-run":    "yarn tsc-es5-build    && cross-env NODE_ENV=production node --allow-natives-syntax tsc-out/es5/index.js",
+    "tsc-es5-run": "yarn tsc-es5-build    && cross-env NODE_ENV=production node --allow-natives-syntax tsc-out/es5/index.js",
     "tsc-es2021-run": "yarn tsc-es2021-build && cross-env NODE_ENV=production node --allow-natives-syntax tsc-out/es2021/index.js",
-
     "build": "tsc -p ./tsconfig-tsc-esnext.json",
     "run_": "cross-env NODE_ENV=production node --allow-natives-syntax tsc-out/esnext/index.js",
-
     "run_box_objArr_objArr_flat": "yarn run_ box objArr objArr expand_flat && yarn run_ box objArr objArr intersect_flat",
     "run_box_objArr_bufArr_flat": "yarn run_ box objArr bufArr expand_flat && yarn run_ box objArr bufArr intersect_flat",
     "run_box_objArr_bufF64_flat": "yarn run_ box objArr bufF64 expand_flat && yarn run_ box objArr bufF64 intersect_flat",
-
     "run_box_bufArr_objArr_flat": "yarn run_ box bufArr objArr expand_flat && yarn run_ box bufArr objArr intersect_flat",
     "run_box_bufArr_bufArr_flat": "yarn run_ box bufArr bufArr expand_flat && yarn run_ box bufArr bufArr intersect_flat",
     "run_box_bufArr_bufF64_flat": "yarn run_ box bufArr bufF64 expand_flat && yarn run_ box bufArr bufF64 intersect_flat",
-
     "run_box_bufF64_objArr_flat": "yarn run_ box bufF64 objArr expand_flat && yarn run_ box bufF64 objArr intersect_flat",
     "run_box_bufF64_bufArr_flat": "yarn run_ box bufF64 bufArr expand_flat && yarn run_ box bufF64 bufArr intersect_flat",
     "run_box_bufF64_bufF64_flat": "yarn run_ box bufF64 bufF64 expand_flat && yarn run_ box bufF64 bufF64 intersect_flat",
-
-
     "run_box_oneObj_objArr": "yarn run_ box oneObj objArr expand && yarn run_ box oneObj objArr intersect",
     "run_box_oneObj_arrArr": "yarn run_ box oneObj arrArr expand && yarn run_ box oneObj arrArr intersect",
     "run_box_oneObj_bufArr": "yarn run_ box oneObj bufArr expand && yarn run_ box oneObj bufArr intersect",
     "run_box_oneObj_bufF64": "yarn run_ box oneObj bufF64 expand && yarn run_ box oneObj bufF64 intersect",
-
     "run_box_oneArr_objArr": "yarn run_ box oneArr objArr expand && yarn run_ box oneArr objArr intersect",
     "run_box_oneArr_arrArr": "yarn run_ box oneArr arrArr expand && yarn run_ box oneArr arrArr intersect",
     "run_box_oneArr_bufArr": "yarn run_ box oneArr bufArr expand && yarn run_ box oneArr bufArr intersect",
     "run_box_oneArr_bufF64": "yarn run_ box oneArr bufF64 expand && yarn run_ box oneArr bufF64 intersect",
-
     "run_box_oneF64_objArr": "yarn run_ box oneF64 objArr expand && yarn run_ box oneF64 objArr intersect",
     "run_box_oneF64_arrArr": "yarn run_ box oneF64 arrArr expand && yarn run_ box oneF64 arrArr intersect",
     "run_box_oneF64_bufArr": "yarn run_ box oneF64 bufArr expand && yarn run_ box oneF64 bufArr intersect",
     "run_box_oneF64_bufF64": "yarn run_ box oneF64 bufF64 expand && yarn run_ box oneF64 bufF64 intersect",
-
     "run_box_objArr_objArr": "yarn run_ box objArr objArr expand && yarn run_ box objArr objArr intersect",
     "run_box_objArr_arrArr": "yarn run_ box objArr arrArr expand && yarn run_ box objArr arrArr intersect",
     "run_box_objArr_bufArr": "yarn run_ box objArr bufArr expand && yarn run_ box objArr bufArr intersect",
     "run_box_objArr_bufF64": "yarn run_ box objArr bufF64 expand && yarn run_ box objArr bufF64 intersect",
-
     "run_box_arrArr_objArr": "yarn run_ box arrArr objArr expand && yarn run_ box arrArr objArr intersect",
     "run_box_arrArr_arrArr": "yarn run_ box arrArr arrArr expand && yarn run_ box arrArr arrArr intersect",
     "run_box_arrArr_bufArr": "yarn run_ box arrArr bufArr expand && yarn run_ box arrArr bufArr intersect",
     "run_box_arrArr_bufF64": "yarn run_ box arrArr bufF64 expand && yarn run_ box arrArr bufF64 intersect",
-
     "run_box_bufArr_objArr": "yarn run_ box bufArr objArr expand && yarn run_ box bufArr objArr intersect",
     "run_box_bufArr_arrArr": "yarn run_ box bufArr arrArr expand && yarn run_ box bufArr arrArr intersect",
     "run_box_bufArr_bufArr": "yarn run_ box bufArr bufArr expand && yarn run_ box bufArr bufArr intersect",
     "run_box_bufArr_bufF64": "yarn run_ box bufArr bufF64 expand && yarn run_ box bufArr bufF64 intersect",
-
     "run_box_bufF64_objArr": "yarn run_ box bufF64 objArr expand && yarn run_ box bufF64 objArr intersect",
     "run_box_bufF64_arrArr": "yarn run_ box bufF64 arrArr expand && yarn run_ box bufF64 arrArr intersect",
     "run_box_bufF64_bufArr": "yarn run_ box bufF64 bufArr expand && yarn run_ box bufF64 bufArr intersect",
     "run_box_bufF64_bufF64": "yarn run_ box bufF64 bufF64 expand && yarn run_ box bufF64 bufF64 intersect",
-
     "run_box_oneObj": "yarn run_box_oneObj_objArr && yarn run_box_oneObj_arrArr && yarn run_box_oneObj_bufArr && yarn run_box_oneObj_bufF64",
     "run_box_oneArr": "yarn run_box_oneArr_objArr && yarn run_box_oneArr_arrArr && yarn run_box_oneArr_bufArr && yarn run_box_oneArr_bufF64",
     "run_box_oneF64": "yarn run_box_oneF64_objArr && yarn run_box_oneF64_arrArr && yarn run_box_oneF64_bufArr && yarn run_box_oneF64_bufF64",
@@ -79,37 +65,29 @@
     "run_box_arrArr": "yarn run_box_arrArr_objArr && yarn run_box_arrArr_arrArr && yarn run_box_arrArr_bufArr && yarn run_box_arrArr_bufF64",
     "run_box_bufArr": "yarn run_box_bufArr_objArr && yarn run_box_bufArr_arrArr && yarn run_box_bufArr_bufArr && yarn run_box_bufArr_bufF64",
     "run_box_bufF64": "yarn run_box_bufF64_objArr && yarn run_box_bufF64_arrArr && yarn run_box_bufF64_bufArr && yarn run_box_bufF64_bufF64",
-
     "bench-all-box": "yarn build && yarn run_box_oneObj && yarn run_box_oneArr && yarn run_box_oneF64 && yarn run_box_objArr && yarn run_box_arrArr && yarn run_box_bufArr && yarn run_box_bufF64",
-
     "run_xf_oneObj_alloc": "yarn run_ xf transform oneObj arrVec default && yarn run_ xf transform oneObj arrArr default && yarn run_ xf transform oneObj bufArr default && yarn run_ xf transform oneObj bufF64 default",
     "run_xf_oneArr_alloc": "yarn run_ xf transform oneArr arrVec default && yarn run_ xf transform oneArr arrArr default && yarn run_ xf transform oneArr bufArr default && yarn run_ xf transform oneArr bufF64 default",
-    "run_xf_oneObj_push":  "yarn run_ xf transform oneObj arrVec force   && yarn run_ xf transform oneObj arrArr force   && yarn run_ xf transform oneObj bufArr force   && yarn run_ xf transform oneObj bufF64 force",
-    "run_xf_oneArr_push":  "yarn run_ xf transform oneArr arrVec force   && yarn run_ xf transform oneArr arrArr force   && yarn run_ xf transform oneArr bufArr force   && yarn run_ xf transform oneArr bufF64 force",
-
+    "run_xf_oneObj_push": "yarn run_ xf transform oneObj arrVec force   && yarn run_ xf transform oneObj arrArr force   && yarn run_ xf transform oneObj bufArr force   && yarn run_ xf transform oneObj bufF64 force",
+    "run_xf_oneArr_push": "yarn run_ xf transform oneArr arrVec force   && yarn run_ xf transform oneArr arrArr force   && yarn run_ xf transform oneArr bufArr force   && yarn run_ xf transform oneArr bufF64 force",
     "bench-all-xf": "yarn build && yarn run_xf_oneObj_push && yarn run_xf_oneArr_push && yarn run_xf_oneObj_alloc && yarn run_xf_oneArr_alloc",
-
     "compose-objArr": "yarn run_ xf compose objArr default && yarn run_ xf compose objArr force",
     "compose-clsArr": "yarn run_ xf compose clsArr default && yarn run_ xf compose clsArr force",
     "compose-cl2Arr": "yarn run_ xf compose cl2Arr default && yarn run_ xf compose cl2Arr force",
     "compose-arrArr": "yarn run_ xf compose arrArr default && yarn run_ xf compose arrArr force",
     "compose-f64Arr": "yarn run_ xf compose f64Arr default",
-    "compose-buf"   : "yarn run_ xf compose bufArr && yarn run_ xf compose bufF64",
-    "compose" :  "yarn compose-objArr && yarn compose-clsArr && yarn compose-cl2Arr && yarn compose-arrArr && yarn compose-f64Arr && yarn compose-buf",
+    "compose-buf": "yarn run_ xf compose bufArr && yarn run_ xf compose bufF64",
+    "compose": "yarn compose-objArr && yarn compose-clsArr && yarn compose-cl2Arr && yarn compose-arrArr && yarn compose-f64Arr && yarn compose-buf",
     "bench-compose": "yarn build && yarn compose",
     "bench": "yarn build && yarn run_",
     "test": "yarn build && yarn run_ test",
-
     "make-log-opt": "yarn build && cross-env NODE_ENV=production node --allow-natives-syntax --trace-opt --log-deopt --no-logfile-per-isolate --logfile=v8log/v8.log tsc-out/esnext/index.js 2>NUL",
-    "make-log-ic":  "yarn build && cross-env NODE_ENV=production node --allow-natives-syntax --log-ic --log-maps     --no-logfile-per-isolate --logfile=v8log/v8.log tsc-out/esnext/index.js 2>NUL",
-
-    "open-log" : "v8-deopt-viewer -i v8log/v8.log -o v8log 2>NUL && serve ./v8log",
-
+    "make-log-ic": "yarn build && cross-env NODE_ENV=production node --allow-natives-syntax --log-ic --log-maps     --no-logfile-per-isolate --logfile=v8log/v8.log tsc-out/esnext/index.js 2>NUL",
+    "open-log": "v8-deopt-viewer -i v8log/v8.log -o v8log 2>NUL && serve ./v8log",
     "log-opt": "yarn make-log-opt",
-    "log-ic":  "yarn make-log-ic",
-
+    "log-ic": "yarn make-log-ic",
     "j_": "yarn run_ xf transform oneObj bufF64 default && yarn run_ xf transform oneArr bufF64 force && yarn run_ xf transform oneF64 bufF64",
-    "juba" : "yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_"
+    "juba": "yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_ && yarn j_"
   },
   "peerDependencies": {},
   "husky": {
@@ -138,6 +116,7 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.2.4",
+    "@types/node": "^20.3.1",
     "husky": "^8.0.3",
     "size-limit": "^8.2.4",
     "tslib": "^2.5.0",
