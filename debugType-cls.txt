@@ -1,0 +1,30 @@
+DebugPrint: 00000087D8462B29: [JS_OBJECT_TYPE]
+ - map: 0x03ebfad2a999 <Map[72](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x026db4f73211 <XfCls_ map = 000003EBFAD2A7E9>
+ - elements: 0x003541141321 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x003541141321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    000003EBFAD0DB39: [String] in OldSpace: #Xx: 0x0087d8462a31 <HeapNumber 1.0> (data field 0), location: in-object
+    000003EBFAD0DB51: [String] in OldSpace: #Xy: 0x0087d8462a41 <HeapNumber 0.0> (data field 1), location: in-object
+    000003EBFAD0DB69: [String] in OldSpace: #Yx: 0x0087d8462a51 <HeapNumber 0.0> (data field 2), location: in-object
+    000003EBFAD0DB81: [String] in OldSpace: #Yy: 0x0087d8462a61 <HeapNumber 1.0> (data field 3), location: in-object
+    000003EBFAD0DB99: [String] in OldSpace: #Tx: 0x0087d8462a71 <HeapNumber 0.0> (data field 4), location: in-object
+    000003EBFAD0DBB1: [String] in OldSpace: #Ty: 0x0087d8462a81 <HeapNumber 0.0> (data field 5), location: in-object
+ }
+000003EBFAD2A999: [Map] in OldSpace
+ - type: JS_OBJECT_TYPE
+ - instance size: 72
+ - inobject properties: 6
+ - elements kind: HOLEY_ELEMENTS
+ - unused property fields: 0
+ - enum length: 6
+ - stable_map
+ - back pointer: 0x03ebfad2a951 <Map[72](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x0055bdaec141 <Cell value= 1>
+ - instance descriptors (own) #6: 0x0087d8462e21 <DescriptorArray[6]>
+ - prototype: 0x026db4f73211 <XfCls_ map = 000003EBFAD2A7E9>
+ - constructor: 0x026db4f72fb1 <JSFunction XfCls_ (sfi = 000003EBFAD28AB1)>
+ - dependent code: 0x003541141249 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+XfCls_ { Xx: 1, Xy: 0, Yx: 0, Yy: 1, Tx: 0, Ty: 0 }

@@ -1,11 +1,9 @@
-
-xf compose objArr default : 3658 ms.
-xf compose objArr force   : 3833 ms.
-
-xf compose arrArr default : 14639 ms.
-xf compose arrArr force   :  4794 ms.
-
-xf compose f64Arr         : 6813 ms.
-
-xf compose bufArr         :  1300 ms.
-xf compose bufF64         :  1534 ms.
+yarn run v1.22.19
+xf compose objArr default : 3508 ms. xf compose objArr force : 3608 ms.
+xf compose clsArr default : 14021 ms. xf compose clsArr force : 13783 ms.
+xf compose cl2Arr default : 2553 ms. xf compose cl2Arr force : 2571 ms.
+xf compose arrArr default : 13201 ms. xf compose arrArr force : 4566 ms.
+xf compose f64Arr default : 5869 ms.
+xf compose bufArr : 1183 ms.
+xf compose bufF64 : 1370 ms.
+Done in 144.55s.

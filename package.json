@@ -89,7 +89,13 @@
 
     "bench-all-xf": "yarn build && yarn run_xf_oneObj_push && yarn run_xf_oneArr_push && yarn run_xf_oneObj_alloc && yarn run_xf_oneArr_alloc",
 
-    "compose" :  "yarn run_ xf compose objArr default && yarn run_ xf compose objArr force && yarn run_ xf compose arrArr default && yarn run_ xf compose arrArr force && yarn run_ xf compose bufArr && yarn run_ xf compose bufF64",
+    "compose-objArr": "yarn run_ xf compose objArr default && yarn run_ xf compose objArr force",
+    "compose-clsArr": "yarn run_ xf compose clsArr default && yarn run_ xf compose clsArr force",
+    "compose-cl2Arr": "yarn run_ xf compose cl2Arr default && yarn run_ xf compose cl2Arr force",
+    "compose-arrArr": "yarn run_ xf compose arrArr default && yarn run_ xf compose arrArr force",
+    "compose-f64Arr": "yarn run_ xf compose f64Arr default",
+    "compose-buf"   : "yarn run_ xf compose bufArr && yarn run_ xf compose bufF64",
+    "compose" :  "yarn compose-objArr && yarn compose-clsArr && yarn compose-cl2Arr && yarn compose-arrArr && yarn compose-f64Arr && yarn compose-buf",
     "bench-compose": "yarn build && yarn compose",
     "bench": "yarn build && yarn run_",
     "test": "yarn build && yarn run_ test",
@@ -134,7 +140,6 @@
     "@size-limit/preset-small-lib": "^8.2.4",
     "husky": "^8.0.3",
     "size-limit": "^8.2.4",
-    "tsdx": "^0.14.1",
     "tslib": "^2.5.0",
     "typescript": "^4.9.5"
   },

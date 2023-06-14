@@ -1,0 +1,13 @@
+--- Arr of references
+
+                    default     force double
+compose   objArr    3539 ms.      3569 ms.     <= { Xx, Xy, Yx, Yy, Tx, Ty }
+compose   clsArr   12741 ms.     13577 ms.     <= new Class() es6
+compose   cl2Arr    2561 ms.      2519 ms.     <= new Class() // old school function constructor
+compose   arrArr   13327 ms.      4619 ms.     <= new [Xx, Xy, Yx, Yy, Tx, Ty]
+compose   f64Arr    6015 ms                    <= new Float64Array([Xx, Xy, Yx, Yy, Tx, Ty])
+
+--- buffer of number[]
+compose   bufArr : 1185 ms.
+compose   bufF64 : 1353 ms.
+

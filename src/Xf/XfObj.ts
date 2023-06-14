@@ -21,6 +21,22 @@ export const XfObj = {
     return { Xx, Xy, Yx, Yy, Tx, Ty } as XfObj
   },
 
+  mut(out: XfObj): XfObj {
+    out.Xx += 1
+    out.Xy += 1
+    out.Yx += 1
+    out.Yy += 1
+    out.Tx += 1
+    out.Ty += 1
+    out.Xx -= 1
+    out.Xy -= 1
+    out.Yx -= 1
+    out.Yy -= 1
+    out.Tx -= 1
+    out.Ty -= 1
+    return out
+  },
+
   compose(out: XfObj, parent: ConstXfObj, child: ConstXfObj): XfObj {
     /*
          parent        child            out

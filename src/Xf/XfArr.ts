@@ -14,7 +14,23 @@ export const XfArr = {
     return [Xx, Xy, Yx, Yy, Tx, Ty] as XfArr
   },
 
-  compose(xf_out: XfArr, parent: ConstXfArr, child: ConstXfArr): XfArr {
+  mut(out: XfArr): XfArr {
+    out[0] += 1
+    out[1] += 1
+    out[2] += 1
+    out[3] += 1
+    out[4] += 1
+    out[5] += 1
+    out[0] -= 1
+    out[1] -= 1
+    out[2] -= 1
+    out[3] -= 1
+    out[4] -= 1
+    out[5] -= 1
+    return out
+  },
+
+  compose(out: XfArr, parent: ConstXfArr, child: ConstXfArr): XfArr {
     /*
          parent        child            out
       | Xx Yx Tx | * | Xx Yx Tx | = | Xx Yx Tx |     (col major convention)
@@ -28,13 +44,13 @@ export const XfArr = {
     */
     const [ parent_Xx, parent_Xy, parent_Yx, parent_Yy, parent_Tx, parent_Ty ] = parent // prettier-ignore
     const [  child_Xx,  child_Xy,  child_Yx,  child_Yy,  child_Tx,  child_Ty ] = child // prettier-ignore
-    xf_out[0] = parent_Xx * child_Xx + parent_Yx * child_Xy
-    xf_out[1] = parent_Xy * child_Xx + parent_Yy * child_Xy
-    xf_out[2] = parent_Xx * child_Yx + parent_Yx * child_Yy
-    xf_out[3] = parent_Xy * child_Yx + parent_Yy * child_Yy
-    xf_out[4] = parent_Xx * child_Tx + parent_Yx * child_Ty + parent_Tx
-    xf_out[5] = parent_Xy * child_Tx + parent_Yy * child_Ty + parent_Ty
-    return xf_out
+    out[0] = parent_Xx * child_Xx + parent_Yx * child_Xy
+    out[1] = parent_Xy * child_Xx + parent_Yy * child_Xy
+    out[2] = parent_Xx * child_Yx + parent_Yx * child_Yy
+    out[3] = parent_Xy * child_Yx + parent_Yy * child_Yy
+    out[4] = parent_Xx * child_Tx + parent_Yx * child_Ty + parent_Tx
+    out[5] = parent_Xy * child_Tx + parent_Yy * child_Ty + parent_Ty
+    return out
   },
 
   transformBuf(xf: ConstXfArr, positions2d: number[] | Float64Array): void {

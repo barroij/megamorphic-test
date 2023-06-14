@@ -3,6 +3,8 @@ import { v8natives } from '../v8natives'
 import { VecArr, VecObj } from './Vec'
 import { XfArr } from './XfArr'
 import { XfBuf } from './XfBuf'
+import { XfCls } from './XfCls'
+import { XfCls2 } from './XfCls2'
 import { XfF64 } from './XfF64'
 import { XfObj } from './XfObj'
 
@@ -25,8 +27,6 @@ const Tx = 53.12
 const Ty = 55.15
 
 export function test_Mat() {
-  const runCount = 200
-
   let opMode: OptMode = 'transform'
 
   const args = process.argv.slice(2)
@@ -47,6 +47,7 @@ export function test_Mat() {
     throw new Error('unknown opMode')
   }
 
+  const runCount = 200
   const t = getTime(cb, runCount)
   console.log(`${args.join(' ')} : ${t} ms.`)
 }
@@ -66,25 +67,13 @@ function getCB_Transform(args: string[]): () => void {
   let rightMode: RightMode = rightModes[0]
   let newMode: NewMode = newModes[0]
 
-  if (args[2]) {
-    oneXfMode = args[2] as any
-  }
-  if (args[3]) {
-    rightMode = args[3] as any
-  }
-  if (args[4]) {
-    newMode = args[4] as any
-  }
+  if (args[2]) { oneXfMode = args[2] as any } // prettier-ignore
+  if (args[3]) { rightMode = args[3] as any } // prettier-ignore
+  if (args[4]) {   newMode = args[4] as any } // prettier-ignore
 
-  if (oneXfModes.indexOf(oneXfMode) === -1) {
-    throw new Error(`invalid OneXfMode ${oneXfMode}`)
-  }
-  if (rightModes.indexOf(rightMode) === -1) {
-    throw new Error(`invalid RightMode ${rightMode}`)
-  }
-  if (newModes.indexOf(newMode) === -1) {
-    throw new Error(`invalid NewMode ${newMode}`)
-  }
+  if (oneXfModes.indexOf(oneXfMode) === -1) { throw new Error(`invalid oneXfMode ${oneXfMode}`) } // prettier-ignore
+  if (rightModes.indexOf(rightMode) === -1) { throw new Error(`invalid rightMode ${rightMode}`) } // prettier-ignore
+  if (  newModes.indexOf(newMode  ) === -1) { throw new Error(`invalid newMode ${newMode}`    ) } // prettier-ignore
 
   const xfType = oneXfMode === 'oneObj' ? XfObj : oneXfMode === 'oneArr' ? XfArr : XfF64
   const xfs = [
@@ -160,7 +149,7 @@ function getCB_Transform(args: string[]): () => void {
 }
 
 function getCB_Compose(args: string[]): () => void {
-  const xfModes = ['objArr', 'arrArr', 'f64Arr', 'bufArr', 'bufF64'] as const
+  const xfModes = ['objArr', 'clsArr', 'cl2Arr', 'arrArr', 'f64Arr', 'bufArr', 'bufF64'] as const
   type XfMode = ValueOfArray<typeof xfModes>
 
   const newModes = ['default', 'force'] as const
@@ -169,16 +158,29 @@ function getCB_Compose(args: string[]): () => void {
   let xfMode: XfMode = xfModes[0]
   let newMode: NewMode = newModes[0]
 
-  if (args[2]) {
-    xfMode = args[2] as any
-  }
-  if (args[3]) {
-    newMode = args[3] as any
-  }
+  if (args[2]) {  xfMode = args[2] as any } // prettier-ignore
+  if (args[3]) { newMode = args[3] as any } // prettier-ignore
+  if (   xfModes.indexOf(xfMode   ) === -1) { throw new Error(`invalid xfMode ${xfMode}`      ) } // prettier-ignore
+  if (  newModes.indexOf(newMode  ) === -1) { throw new Error(`invalid newMode ${newMode}`    ) } // prettier-ignore
 
   const N = 500
-  if (xfMode === 'objArr' || xfMode === 'arrArr' || xfMode ==='f64Arr') {
-    const xfType = xfMode === 'objArr' ? XfObj : (xfMode === 'arrArr' ? XfArr : XfF64)
+  if (
+    xfMode === 'objArr' ||
+    xfMode === 'arrArr' ||
+    xfMode === 'f64Arr' ||
+    xfMode === 'clsArr' ||
+    xfMode === 'cl2Arr'
+  ) {
+    const xfType =
+      xfMode === 'objArr'
+        ? XfObj
+        : xfMode === 'arrArr'
+        ? XfArr
+        : xfMode === 'f64Arr'
+        ? XfF64
+        : xfMode === 'clsArr'
+        ? XfCls
+        : XfCls2
     const newXf = newMode === 'default' ? xfType.new : xfType.newForceDouble
     const leftXfs = [] as any[]
     const rightXfs = [] as any[]
@@ -193,6 +195,13 @@ function getCB_Compose(args: string[]): () => void {
       outXfs.push(newXf(0.1, 0.1, 0.1, 0.1, 0.1, 0.1) as any)
       outXfs.push(newXf(0.1, 0.1, 0.1, 0.1, 0.1, 0.1) as any)
     })
+    /* v8natives.debugPrint(leftXfs[0])
+    v8natives.debugPrint(rightXfs[0])
+    console.log('################################################################')
+    xfType.compose(outXfs[0], leftXfs[0], rightXfs[0])
+    v8natives.debugPrint(leftXfs[0])
+    v8natives.debugPrint(rightXfs[0])
+    console.log('################################################################')*/
     return () => {
       {
         let leftK = 0
@@ -267,7 +276,6 @@ function getCB_Compose(args: string[]): () => void {
         r[rightK++] = i
         r[rightK++] = j
 
-
         o[outK++] = 0.1
         o[outK++] = 0.1
         o[outK++] = 0.1
@@ -303,8 +311,7 @@ function getCB_Compose(args: string[]): () => void {
         })
       }
     }
-  }
-  else {
+  } else {
     throw new Error('unknown leftMode')
   }
 

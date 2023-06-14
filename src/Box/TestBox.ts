@@ -30,24 +30,13 @@ export function test_Box() {
   let opMode: OptMode = 'expand'
 
   const args = process.argv.slice(2)
-  if (args[1]) {
-    leftMode = args[1] as any
-  }
-  if (args[2]) {
-    rightMode = args[2] as any
-  }
-  if (args[3]) {
-    opMode = args[3] as any
-  }
-  if (leftModes.indexOf(leftMode) === -1) {
-    throw new Error(`invalid leftMode ${leftMode}`)
-  }
-  if (rightModes.indexOf(rightMode) === -1) {
-    throw new Error(`invalid rightMode ${rightMode}`)
-  }
-  if (opModes.indexOf(opMode) === -1) {
-    throw new Error(`invalid opMode ${opMode}`)
-  }
+  if (args[1]) {  leftMode = args[1] as any } // prettier-ignore
+  if (args[2]) { rightMode = args[2] as any } // prettier-ignore
+  if (args[3]) {    opMode = args[3] as any } // prettier-ignore
+
+  if ( leftModes.indexOf(leftMode ) === -1) { throw new Error(`invalid leftMode ${leftMode}`  ) } // prettier-ignore
+  if (rightModes.indexOf(rightMode) === -1) { throw new Error(`invalid rightMode ${rightMode}`) } // prettier-ignore
+  if (   opModes.indexOf(opMode   ) === -1) { throw new Error(`invalid opMode ${opMode}`      ) } // prettier-ignore
 
   let cb: () => void
   const C = N * N

@@ -1,0 +1,250 @@
+yarn run v1.22.19
+$ yarn build && yarn run_ test
+$ tsc -p ./tsconfig-tsc-esnext.json
+$ cross-env NODE_ENV=production node --allow-natives-syntax tsc-out/esnext/index.js test
+---------------------------------------------------------------------
+getAllPropertyNames(xfCls) = Xx,Xy,Yx,Yy,Tx,Ty,constructor,__defineGetter__,__defineSetter__,hasOwnProperty,__lookupGetter__,__lookupSetter__,isPrototypeOf,propertyIsEnumerable,toString,valueOf,__proto__,toLocaleString
+getAllPropertyNames(xfCls2) = Xx,Xy,Yx,Yy,Tx,Ty,constructor,__defineGetter__,__defineSetter__,hasOwnProperty,__lookupGetter__,__lookupSetter__,isPrototypeOf,propertyIsEnumerable,toString,valueOf,__proto__,toLocaleString
+getAllPropertyNames(xfObj) = Xx,Xy,Yx,Yy,Tx,Ty,constructor,__defineGetter__,__defineSetter__,hasOwnProperty,__lookupGetter__,__lookupSetter__,isPrototypeOf,propertyIsEnumerable,toString,valueOf,__proto__,toLocaleString
+---------------------------------------------------------------------
+getAllKeys(xfCls) = Xx,Xy,Yx,Yy,Tx,Ty,constructor,constructor,__defineGetter__,__defineSetter__,hasOwnProperty,__lookupGetter__,__lookupSetter__,isPrototypeOf,propertyIsEnumerable,toString,valueOf,__proto__,toLocaleString
+getAllKeys(xfCls2) = Xx,Xy,Yx,Yy,Tx,Ty,constructor,constructor,__defineGetter__,__defineSetter__,hasOwnProperty,__lookupGetter__,__lookupSetter__,isPrototypeOf,propertyIsEnumerable,toString,valueOf,__proto__,toLocaleString
+getAllKeys(xfObj) = Xx,Xy,Yx,Yy,Tx,Ty,constructor,__defineGetter__,__defineSetter__,hasOwnProperty,__lookupGetter__,__lookupSetter__,isPrototypeOf,propertyIsEnumerable,toString,valueOf,__proto__,toLocaleString
+---------------------------------------------------------------------
+haveSameMap(xfCls, xfCls2 = false
+haveSameMap(xfCls, xfObj) = false
+haveSameMap(xfCls2, xfObj) = false
+DebugPrint: 000001812F3F9679: [JS_OBJECT_TYPE]
+ - map: 0x0288fec2c2a1 <Map[72](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x000682db5fd9 <XfCls_ map = 00000288FEC2C0F1>
+ - elements: 0x00df7fc81321 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x00df7fc81321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    00000288FEC0E129: [String] in OldSpace: #Xx: 1 (data field 0), location: in-object
+    00000288FEC0E141: [String] in OldSpace: #Xy: 0 (data field 1), location: in-object
+    00000288FEC0E159: [String] in OldSpace: #Yx: 0 (data field 2), location: in-object
+    00000288FEC0E171: [String] in OldSpace: #Yy: 1 (data field 3), location: in-object
+    00000288FEC0E189: [String] in OldSpace: #Tx: 0 (data field 4), location: in-object
+    00000288FEC0E1A1: [String] in OldSpace: #Ty: 0 (data field 5), location: in-object
+ }
+00000288FEC2C2A1: [Map] in OldSpace
+ - type: JS_OBJECT_TYPE
+ - instance size: 72
+ - inobject properties: 6
+ - elements kind: HOLEY_ELEMENTS
+ - unused property fields: 0
+ - enum length: 6
+ - stable_map
+ - back pointer: 0x0288fec2c259 <Map[72](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x0193d5e6c141 <Cell value= 1>
+ - instance descriptors (own) #6: 0x01812f3f9181 <DescriptorArray[6]>
+ - prototype: 0x000682db5fd9 <XfCls_ map = 00000288FEC2C0F1>
+ - constructor: 0x000682db5359 <JSFunction XfCls_ (sfi = 00000288FEC27199)>
+ - dependent code: 0x00df7fc81249 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+DebugPrint: 000001812F3F9E19: [JS_OBJECT_TYPE]
+ - map: 0x0288fec2c7a1 <Map[72](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x01812f3f96c1 <Object map = 00000288FEC2C5E1>
+ - elements: 0x00df7fc81321 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x00df7fc81321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    00000288FEC0E129: [String] in OldSpace: #Xx: 1 (const data field 0), location: in-object
+    00000288FEC0E141: [String] in OldSpace: #Xy: 0 (const data field 1), location: in-object
+    00000288FEC0E159: [String] in OldSpace: #Yx: 0 (const data field 2), location: in-object
+    00000288FEC0E171: [String] in OldSpace: #Yy: 1 (const data field 3), location: in-object
+    00000288FEC0E189: [String] in OldSpace: #Tx: 0 (const data field 4), location: in-object
+    00000288FEC0E1A1: [String] in OldSpace: #Ty: 0 (const data field 5), location: in-object
+ }
+00000288FEC2C7A1: [Map] in OldSpace
+ - type: JS_OBJECT_TYPE
+ - instance size: 72
+ - inobject properties: 6
+ - elements kind: HOLEY_ELEMENTS
+ - unused property fields: 0
+ - enum length: 6
+ - stable_map
+ - back pointer: 0x0288fec2c759 <Map[72](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x0288fec2c671 <Cell value= 0>
+ - instance descriptors (own) #6: 0x01812f3f9a41 <DescriptorArray[6]>
+ - prototype: 0x01812f3f96c1 <Object map = 00000288FEC2C5E1>
+ - constructor: 0x01812f3c3e71 <JSFunction XfCls2_ (sfi = 00000288FEC28BB9)>
+ - dependent code: 0x00df7fc81249 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+DebugPrint: 000001812F3FA059: [JS_OBJECT_TYPE]
+ - map: 0x0288fec2abb9 <Map[72](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x02425ad37bd9 <Object map = 000002425AD01B19>
+ - elements: 0x00df7fc81321 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x00df7fc81321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    00000288FEC0E129: [String] in OldSpace: #Xx: 1 (const data field 0), location: in-object
+    00000288FEC0E141: [String] in OldSpace: #Xy: 0 (const data field 1), location: in-object
+    00000288FEC0E159: [String] in OldSpace: #Yx: 0 (const data field 2), location: in-object
+    00000288FEC0E171: [String] in OldSpace: #Yy: 1 (const data field 3), location: in-object
+    00000288FEC0E189: [String] in OldSpace: #Tx: 0 (const data field 4), location: in-object
+    00000288FEC0E1A1: [String] in OldSpace: #Ty: 0 (const data field 5), location: in-object
+ }
+00000288FEC2ABB9: [Map] in OldSpace
+ - type: JS_OBJECT_TYPE
+ - instance size: 72
+ - inobject properties: 6
+ - elements kind: HOLEY_ELEMENTS
+ - unused property fields: 0
+ - enum length: 6
+ - stable_map
+ - back pointer: 0x0288fec2ab71 <Map[72](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x0193d5e6c141 <Cell value= 1>
+ - instance descriptors (own) #6: 0x01812f3f2211 <DescriptorArray[6]>
+ - prototype: 0x02425ad37bd9 <Object map = 000002425AD01B19>
+ - constructor: 0x02425ad12459 <JSFunction Object (sfi = 00000201E9C7A201)>
+ - dependent code: 0x00df7fc81249 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+--------------------------------------- mut ---------------------------------------
+haveSameMap(xfCls, xfCls2 = false
+haveSameMap(xfCls, xfObj) = false
+haveSameMap(xfCls2, xfObj) = false
+DebugPrint: 000001812F3F9679: [JS_OBJECT_TYPE]
+ - map: 0x0288fec2c2a1 <Map[72](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x000682db5fd9 <XfCls_ map = 00000288FEC2C0F1>
+ - elements: 0x00df7fc81321 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x00df7fc81321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    00000288FEC0E129: [String] in OldSpace: #Xx: 1 (data field 0), location: in-object
+    00000288FEC0E141: [String] in OldSpace: #Xy: 0 (data field 1), location: in-object
+    00000288FEC0E159: [String] in OldSpace: #Yx: 0 (data field 2), location: in-object
+    00000288FEC0E171: [String] in OldSpace: #Yy: 1 (data field 3), location: in-object
+    00000288FEC0E189: [String] in OldSpace: #Tx: 0 (data field 4), location: in-object
+    00000288FEC0E1A1: [String] in OldSpace: #Ty: 0 (data field 5), location: in-object
+ }
+00000288FEC2C2A1: [Map] in OldSpace
+ - type: JS_OBJECT_TYPE
+ - instance size: 72
+ - inobject properties: 6
+ - elements kind: HOLEY_ELEMENTS
+ - unused property fields: 0
+ - enum length: 6
+ - stable_map
+ - back pointer: 0x0288fec2c259 <Map[72](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x0193d5e6c141 <Cell value= 1>
+ - instance descriptors (own) #6: 0x01812f3f9181 <DescriptorArray[6]>
+ - prototype: 0x000682db5fd9 <XfCls_ map = 00000288FEC2C0F1>
+ - constructor: 0x000682db5359 <JSFunction XfCls_ (sfi = 00000288FEC27199)>
+ - dependent code: 0x00df7fc81249 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+DebugPrint: 000001812F3F9E19: [JS_OBJECT_TYPE]
+ - map: 0x0288fec2c7a1 <Map[72](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x01812f3f96c1 <Object map = 00000288FEC2C5E1>
+ - elements: 0x00df7fc81321 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x00df7fc81321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    00000288FEC0E129: [String] in OldSpace: #Xx: 1 (data field 0), location: in-object
+    00000288FEC0E141: [String] in OldSpace: #Xy: 0 (data field 1), location: in-object
+    00000288FEC0E159: [String] in OldSpace: #Yx: 0 (data field 2), location: in-object
+    00000288FEC0E171: [String] in OldSpace: #Yy: 1 (data field 3), location: in-object
+    00000288FEC0E189: [String] in OldSpace: #Tx: 0 (data field 4), location: in-object
+    00000288FEC0E1A1: [String] in OldSpace: #Ty: 0 (data field 5), location: in-object
+ }
+00000288FEC2C7A1: [Map] in OldSpace
+ - type: JS_OBJECT_TYPE
+ - instance size: 72
+ - inobject properties: 6
+ - elements kind: HOLEY_ELEMENTS
+ - unused property fields: 0
+ - enum length: 6
+ - stable_map
+ - back pointer: 0x0288fec2c759 <Map[72](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x0288fec2c671 <Cell value= 0>
+ - instance descriptors (own) #6: 0x01812f3f9a41 <DescriptorArray[6]>
+ - prototype: 0x01812f3f96c1 <Object map = 00000288FEC2C5E1>
+ - constructor: 0x01812f3c3e71 <JSFunction XfCls2_ (sfi = 00000288FEC28BB9)>
+ - dependent code: 0x00df7fc81249 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+DebugPrint: 000001812F3FA059: [JS_OBJECT_TYPE]
+ - map: 0x0288fec2abb9 <Map[72](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x02425ad37bd9 <Object map = 000002425AD01B19>
+ - elements: 0x00df7fc81321 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x00df7fc81321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    00000288FEC0E129: [String] in OldSpace: #Xx: 1 (data field 0), location: in-object
+    00000288FEC0E141: [String] in OldSpace: #Xy: 0 (data field 1), location: in-object
+    00000288FEC0E159: [String] in OldSpace: #Yx: 0 (data field 2), location: in-object
+    00000288FEC0E171: [String] in OldSpace: #Yy: 1 (data field 3), location: in-object
+    00000288FEC0E189: [String] in OldSpace: #Tx: 0 (data field 4), location: in-object
+    00000288FEC0E1A1: [String] in OldSpace: #Ty: 0 (data field 5), location: in-object
+ }
+00000288FEC2ABB9: [Map] in OldSpace
+ - type: JS_OBJECT_TYPE
+ - instance size: 72
+ - inobject properties: 6
+ - elements kind: HOLEY_ELEMENTS
+ - unused property fields: 0
+ - enum length: 6
+ - stable_map
+ - back pointer: 0x0288fec2ab71 <Map[72](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x0193d5e6c141 <Cell value= 1>
+ - instance descriptors (own) #6: 0x01812f3f2211 <DescriptorArray[6]>
+ - prototype: 0x02425ad37bd9 <Object map = 000002425AD01B19>
+ - constructor: 0x02425ad12459 <JSFunction Object (sfi = 00000201E9C7A201)>
+ - dependent code: 0x00df7fc81249 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+DebugPrint: 000001812F3F8B39: [JS_OBJECT_TYPE]
+ - map: 0x0288fec2b039 <Map[56](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x02425ad37bd9 <Object map = 000002425AD01B19>
+ - elements: 0x01812f3f8ba1 <FixedArray[17]> [HOLEY_ELEMENTS]
+ - properties: 0x00df7fc81321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0000030A95E37B59: [String] in OldSpace: #TOTO: 0 (const data field 0), location: in-object
+    0000030A95E37B71: [String] in OldSpace: #TATA: 1 (const data field 1), location: in-object
+ }
+ - elements: 0x01812f3f8ba1 <FixedArray[17]> {
+           0: 0x030a95e37b59 <String[4]: #TOTO>
+           1: 0x030a95e37b71 <String[4]: #TATA>
+        2-16: 0x00df7fc81681 <the_hole>
+ }
+00000288FEC2B039: [Map] in OldSpace
+ - type: JS_OBJECT_TYPE
+ - instance size: 56
+ - inobject properties: 4
+ - elements kind: HOLEY_ELEMENTS
+ - unused property fields: 2
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x0288fec2aff1 <Map[56](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x02425ad0dbe1 <Cell value= 0>
+ - instance descriptors (own) #2: 0x01812f3f8c39 <DescriptorArray[2]>
+ - prototype: 0x02425ad37bd9 <Object map = 000002425AD01B19>
+ - constructor: 0x02425ad12459 <JSFunction Object (sfi = 00000201E9C7A201)>
+ - dependent code: 0x00df7fc81249 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+DebugPrint: 000001812F3F8CC1: [JS_OBJECT_TYPE]
+ - map: 0x0288fec2b039 <Map[56](HOLEY_ELEMENTS)> [FastProperties]
+ - prototype: 0x02425ad37bd9 <Object map = 000002425AD01B19>
+ - elements: 0x00df7fc81321 <FixedArray[0]> [HOLEY_ELEMENTS]
+ - properties: 0x00df7fc81321 <FixedArray[0]>
+ - All own properties (excluding elements): {
+    0000030A95E37B59: [String] in OldSpace: #TOTO: 0x030a95e37b59 <String[4]: #TOTO> (const data field 0), location: in-object
+    0000030A95E37B71: [String] in OldSpace: #TATA: 0x030a95e37b71 <String[4]: #TATA> (const data field 1), location: in-object
+ }
+00000288FEC2B039: [Map] in OldSpace
+ - type: JS_OBJECT_TYPE
+ - instance size: 56
+ - inobject properties: 4
+ - elements kind: HOLEY_ELEMENTS
+ - unused property fields: 2
+ - enum length: invalid
+ - stable_map
+ - back pointer: 0x0288fec2aff1 <Map[56](HOLEY_ELEMENTS)>
+ - prototype_validity cell: 0x02425ad0dbe1 <Cell value= 0>
+ - instance descriptors (own) #2: 0x01812f3f8c39 <DescriptorArray[2]>
+ - prototype: 0x02425ad37bd9 <Object map = 000002425AD01B19>
+ - constructor: 0x02425ad12459 <JSFunction Object (sfi = 00000201E9C7A201)>
+ - dependent code: 0x00df7fc81249 <Other heap object (WEAK_ARRAY_LIST_TYPE)>
+ - construction counter: 0
+
+Done in 2.21s.
